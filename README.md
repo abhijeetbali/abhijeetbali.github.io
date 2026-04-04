@@ -1,4 +1,4 @@
-# Shrikant Naidu | Personal Portfolio
+# Abhijeet Bali| Personal Portfolio
 
 A modern, high-fidelity personal portfolio built with **React**, **Vite**, and **Tailwind CSS**. Designed with a focus on typography, smooth transitions, and a developer-friendly "Content-as-Data" workflow.
 
