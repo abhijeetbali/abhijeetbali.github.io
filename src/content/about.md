@@ -14,7 +14,7 @@ contact:
 
 hero:
   heading: "Building"
-  aboutHeading: "The model is rarely the hard part."
+  aboutHeading: "I own the pipeline, not just the notebook."
   subheading: "ML · LLMs · GenAI · Production Systems"
   rotatingTexts:
     - "Intelligent Systems."
@@ -32,27 +32,28 @@ profileImage: "/abhijeetbali.github.io/images/abhijeet-profile.jpg"
 achievements: []
 ---
 
-I work at the intersection of machine learning, data engineering, and production systems. Most of my work revolves around building things that hold up in the real world — not just in a Jupyter notebook.
+I'm a Senior Data Scientist with 4.6 years of experience turning messy real-world problems into production ML systems. I've built recommendation engines serving 22 banks, RAG pipelines replacing entire support teams, and data pipelines processing 2+ billion transactions — the kind of work that doesn't fit neatly into a Kaggle leaderboard.
 
-I specialize in **LLM-powered applications**, **recommendation systems**, and **scalable data pipelines** — helping organizations automate complex workflows and extract real value from their data.
-
-I'm fluent in Python, the modern ML stack (XGBoost, LangChain, LlamaIndex, Sentence Transformers), and the infrastructure around it (Airflow, Docker, Greenplum, PostgreSQL).
+My focus sits at the intersection of *GenAI, applied ML, and data engineering*. I don't just train models — I *own the full stack from raw data to deployed API*.
 
 ## My Journey
 
-I got into data science after studying engineering, driven by curiosity about what software could do with messy real-world data. That curiosity slowly pulled me away from academic model-tuning and toward the full stack — pipelines, feature stores, retrieval systems, and production infrastructure.
+I started in engineering, got pulled into data, and slowly realized the model was never the interesting part. The interesting part was everything around it — the pipeline that feeds it, the feature store that shapes it, the infra that serves it, and the monitoring that *catches it when it quietly starts lying*.
 
-That shift changed how I approach everything at work. Most problems aren't ML problems — they're system problems.
+That shift in thinking changed everything. I stopped chasing accuracy metrics and started caring about *reliability, latency, and whether the system actually does what the business needs at scale*.
 
-## What I Do
+## What I Build
 
-- **LLM & GenAI Systems**: Building RAG pipelines, semantic search engines, and LLM-powered chatbots that people actually rely on day to day.
-- **Recommendation & Propensity Modeling**: 45 XGBoost propensity models, ALS collaborative filtering, RFM segmentation — systems serving 22+ banks and 20+ client portals.
-- **Data Engineering**: Designing Airflow pipelines, managing Greenplum data marts, DQM layers, and mapping 2.15 billion transactions that nobody had touched in years.
-- **MLOps**: Docker-based deployments, FastAPI backends, monitoring pipelines that don't break silently at 2am.
+*LLM & GenAI Systems* — Production RAG pipelines (LangChain + Llama 3.1 + Qdrant), semantic search engines replacing keyword-based Elasticsearch, LLM-powered CRM automation processing 100k+ tickets. Not prototypes — systems people depend on daily.
+
+*Recommendation & Propensity Modeling* — 45 XGBoost propensity models, ALS collaborative filtering, RFM-based segmentation, Maximal Marginal Relevance for offer diversity. Drove *80–100% engagement lift* and *95% increase in product redemptions* across 20+ client portals.
+
+*Data Engineering at Scale* — Airflow pipelines, Greenplum data marts, DQM layers, Docker-based modernization of legacy systems. Mapped *2.15 billion transactions* no one had touched in years. Cut vacuum time by *56%*.
+
+*MLOps* — FastAPI backends, Docker deployments, pipeline monitoring. I care about what happens *after* the model goes live, not just before.
 
 ## Beyond Work
 
-I follow chess seriously — not just casually. I analyse games, track tournaments, and have strong opinions about openings. Watching the Gukesh era unfold right now is genuinely exciting if you follow the sport closely.
+I follow chess seriously — not passively. I study games, track tournaments, and have strong opinions about openings. Watching the Gukesh era unfold in real time is one of those rare things that's genuinely exciting if you're paying attention.
 
-Chess taught me something useful about work: most games aren't lost because of one blunder. They're lost because of ten small inaccuracies that built up quietly. That pattern shows up everywhere once you start seeing it.
+Chess taught me something that transfers directly to engineering: most games aren't lost to one blunder. They're lost to *ten small inaccuracies that compound quietly over time*. Once you see that pattern, you see it everywhere — in pipelines, in model drift, in team decisions. The discipline is catching the small things before they become the expensive thing.
