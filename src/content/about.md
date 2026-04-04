@@ -27,7 +27,7 @@ shortBio: "I am a Senior Data Scientist with 4.6+ years of experience building p
 
 tagline: "Production ML. Not just notebooks."
 
-profileImage: ""
+profileImage: "/images/abhijeet-profile.jpg"
 
 achievements: []
 ---
