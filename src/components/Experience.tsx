@@ -1,13 +1,26 @@
+
 import React from 'react';
 import { Reveal } from './Reveal';
 import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
+    role: "Associate Staff Engineer",
+    company: "Nagarro",
+    location: "Pune",
+    duration: "May 2026 – Present",
+    highlights: [
+      "Building GenAI and LLM applications with Python, LangChain, LangGraph and RAG pipelines",
+      "Applying LLM evaluation techniques and prompt engineering to production-oriented AI systems",
+      "Working across AI/ML solution architecture and LLM orchestration",
+      "Deploying, monitoring and troubleshooting AI systems with AWS, FastAPI/Flask and Docker",
+    ],
+  },
+  {
     role: "Data Scientist II",
     company: "Loylty Rewardz Pvt Ltd",
     location: "Mumbai",
-    duration: "Jan 2023 – Present",
+    duration: "Jan 2023 – May 2026",
     highlights: [
       "Designed Recommendation Engine for 20+ client portals using 45 XGBoost models → 80–100% boost in customer engagement, 95% increase in product redemptions",
       "Built production RAG Chatbot (LangChain + Llama 3.1 + Qdrant) → 50% reduction in lead response time, 35% boost in engagement",
