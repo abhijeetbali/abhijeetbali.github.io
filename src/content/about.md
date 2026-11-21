@@ -25,6 +25,7 @@ hero:
   subheading: "ML · LLMs · GenAI · Production Systems"
   rotatingTexts:
     - "Intelligent Systems."
+    - "AI Agents."
     - "RAG Pipelines."
     - "LLM Applications."
     - "Propensity Models."

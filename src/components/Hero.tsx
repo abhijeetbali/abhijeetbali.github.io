@@ -168,7 +168,7 @@ export const Hero: React.FC = () => {
   };
 
   const HeroContent = () => (
-    <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 pt-28 pb-12 md:pt-32 md:pb-16">
+    <div className="flex flex-col items-center text-center max-w-6xl mx-auto px-6 pt-28 pb-12 md:pt-32 md:pb-16">
       {profile.current && (
         <div className="inline-flex items-center gap-2.5 mb-8 md:mb-10 px-4 py-2 rounded-full bg-white/80 backdrop-blur border border-neutral-200 shadow-sm text-sm text-neutral-600">
           <span className="relative flex h-2.5 w-2.5">
@@ -181,10 +181,13 @@ export const Hero: React.FC = () => {
         </div>
       )}
 
-      <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-6 md:mb-8 tracking-tighter text-center uppercase">
+      <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-8 md:mb-10 tracking-tighter text-center uppercase">
         {profile.hero.heading} <br />
-        <span className="block min-h-[2.7em] md:min-h-[1.8em] bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent pb-2">
-          <span key={textIndex} className="block animate-fade-in-up">
+        <span className="block mt-3 md:mt-4 text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[5.25rem] leading-[1.05] min-h-[2.1em] sm:min-h-[1.05em]">
+          <span
+            key={textIndex}
+            className="inline-block animate-fade-in-up sm:whitespace-nowrap bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent pb-1"
+          >
             {profile.hero.rotatingTexts[textIndex]}
           </span>
         </span>
