@@ -5,8 +5,11 @@ export interface Project {
   category: string;
   description: string;
   fullContent?: string;
-  imageUrl: string;
-  link: string; // External link
+  imageUrl?: string;
+  link?: string; // External link
+  metric?: string; // Headline number shown on the card cover, e.g. "+95%"
+  metricLabel?: string; // What the metric measures, e.g. "product redemptions"
+  role?: string; // Your role on the project
   date: string;
   client?: string;
   tags?: string[];
@@ -21,13 +24,6 @@ export interface Post {
   category: string;
 }
 
-export interface Testimonial {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-}
-
 export interface NavItem {
   label: string;
   href: string;
@@ -38,15 +34,30 @@ export interface Achievement {
   caption: string;
 }
 
+export interface Stat {
+  value: string;
+  label: string;
+}
+
+export interface Certification {
+  name: string;
+  issuer?: string;
+  url?: string;
+}
+
 export interface Profile {
   name: string;
   role: string;
   email: string;
   location: string;
+  current?: { title: string; company: string };
+  resume?: string;
+  stats: Stat[];
+  certifications: Certification[];
   social: {
     github: string;
     linkedin: string;
-    twitter: string;
+    twitter?: string;
     lightning?: string;
     wandb?: string;
     huggingface?: string;

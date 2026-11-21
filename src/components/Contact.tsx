@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Reveal } from './Reveal';
 import { profile } from '../data';
-import { CheckCircle2, AlertCircle, Send, Loader2 } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Send, Loader2, Mail, Linkedin, FileText, ArrowUpRight } from 'lucide-react';
+
+// A Formspree form ID looks like "xyzabcd" (or a full https://formspree.io/f/... URL).
+const formspreeId = profile.contact.formspreeId?.trim() || '';
+const formEnabled = formspreeId.length > 0 && !formspreeId.includes('@');
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -16,8 +20,7 @@ export const Contact: React.FC = () => {
     setStatus('submitting');
 
     // Formspree endpoint handling (supports both ID and full URL)
-    const idOrUrl = profile.contact.formspreeId || 'your-formspree-id';
-    const endpoint = idOrUrl.startsWith('http') ? idOrUrl : `https://formspree.io/f/${idOrUrl}`;
+    const endpoint = formspreeId.startsWith('http') ? formspreeId : `https://formspree.io/f/${formspreeId}`;
 
     try {
       const response = await fetch(endpoint, {
@@ -48,21 +51,59 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-neutral-50 scroll-mt-24">
-      <div className="container mx-auto px-6 max-w-3xl">
+      <div className="container mx-auto px-6 max-w-4xl">
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-4">
-              Get in touch
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-neutral-900 mb-4 tracking-tight">
+              Let's build something that ships.
             </h2>
             <p className="text-neutral-600 text-lg md:text-xl">
-              Interested in collaboration? Let's discuss your data strategy.
+              Got an ML, GenAI or data platform problem worth solving? I'd love to hear about it.
             </p>
           </div>
         </Reveal>
 
+        <Reveal width="100%" delay={0.1}>
+          <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 `}>
+            {[
+              { href: `mailto:${profile.email}`, icon: Mail, title: 'Email', sub: 'Drop me a line', external: false },
+              ...(profile.social.linkedin
+                ? [{ href: profile.social.linkedin, icon: Linkedin, title: 'LinkedIn', sub: 'Connect with me', external: true }]
+                : []),
+              ...(profile.resume
+                ? [{ href: profile.resume, icon: FileText, title: 'Résumé', sub: 'Download PDF', external: true }]
+                : []),
+            ].map(({ href, icon: Icon, title, sub, external }) => (
+              <a
+                key={title}
+                href={href}
+                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="group flex items-center gap-4 bg-white rounded-2xl border border-neutral-200 p-5 shadow-sm hover:shadow-lg hover:border-blue-200 hover:-translate-y-0.5 transition-all"
+              >
+                <span className="shrink-0 w-11 h-11 rounded-xl bg-neutral-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  <Icon size={20} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-heading font-semibold text-neutral-900">{title}</span>
+                  <span className="block text-sm text-neutral-500 truncate">{sub}</span>
+                </span>
+                <ArrowUpRight size={18} className="shrink-0 text-neutral-300 group-hover:text-blue-600 transition-colors" />
+              </a>
+            ))}
+          </div>
+          <p className="text-center text-neutral-500 mt-6">
+            or write directly to{' '}
+            <a href={`mailto:${profile.email}`} className="font-medium text-neutral-900 underline decoration-neutral-300 underline-offset-4 hover:decoration-blue-600">
+              {profile.email}
+            </a>
+          </p>
+          {formEnabled && <div className="mb-12" />}
+        </Reveal>
+
+        {formEnabled && (
         <Reveal width="100%" delay={0.2}>
           {status === 'success' ? (
-            <div className="text-center py-12 bg-white rounded-2xl shadow-sm border border-neutral-100 animate-fade-in">
+            <div className="text-center py-12 bg-white rounded-2xl shadow-sm border border-neutral-100 animate-fade-in-up">
               <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 size={32} />
               </div>
@@ -144,6 +185,7 @@ export const Contact: React.FC = () => {
             </form>
           )}
         </Reveal>
+        )}
       </div>
     </section>
   );

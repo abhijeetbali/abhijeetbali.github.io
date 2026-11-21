@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
-import { NavItem } from '../types';
+import { Menu, X, FileText } from 'lucide-react';
+import { profile, posts } from '../data';
+import type { NavItem } from '../types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const navItems: NavItem[] = [
@@ -8,6 +9,7 @@ const navItems: NavItem[] = [
   { label: 'Experience', href: '#experience' },
   { label: 'Works', href: '#works' },
   { label: 'Skills', href: '#skills' },
+  ...(posts.length > 0 ? [{ label: 'Writing', href: '#writing' }] : []),
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -89,11 +91,11 @@ export const Navbar: React.FC = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="font-heading font-black text-xl text-neutral-900 tracking-tight uppercase">
-            Abhijeet<span className="text-blue-600">.</span>
+            {profile.name.split(' ')[0]}<span className="text-blue-600">.</span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -104,13 +106,23 @@ export const Navbar: React.FC = () => {
                 {item.label}
               </a>
             ))}
+            {profile.resume && (
+              <a
+                href={profile.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 text-white text-xs font-menu font-semibold uppercase tracking-widest hover:bg-blue-600 transition-colors"
+              >
+                <FileText size={14} /> Résumé
+              </a>
+            )}
           </div>
 
           {/* Mobile Toggle */}
           {!isOpen && (
             <button
               type="button"
-              className="md:hidden text-neutral-900 focus:outline-none p-2 -mr-2"
+              className="lg:hidden text-neutral-900 focus:outline-none p-2 -mr-2"
               onClick={() => setIsOpen(true)}
               aria-label="Open menu"
             >
@@ -123,7 +135,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[9999] md:hidden bg-white"
+          className="fixed inset-0 z-[9999] lg:hidden bg-white"
           style={{ touchAction: 'none' }}
         >
           {/* Header with close button */}
@@ -160,13 +172,23 @@ export const Navbar: React.FC = () => {
                   {item.label}
                 </a>
               ))}
+              {profile.resume && (
+                <a
+                  href={profile.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mx-auto mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white text-base font-menu font-semibold uppercase tracking-widest"
+                >
+                  <FileText size={18} /> Résumé
+                </a>
+              )}
             </div>
           </div>
 
           {/* Footer */}
           <div className="absolute bottom-0 left-0 right-0 p-8 text-center border-t border-neutral-100">
             <div className="text-neutral-400 text-xs font-medium tracking-[0.2em] uppercase">
-              © {new Date().getFullYear()} Shrikant Naidu
+              © {new Date().getFullYear()} {profile.name}
             </div>
           </div>
         </div>

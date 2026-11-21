@@ -4,13 +4,20 @@ role: "Senior Data Scientist"
 email: "abhijeetbali29@gmail.com"
 location: "Pune, Maharashtra, India"
 
+current:
+  title: "Associate Staff Engineer"
+  company: "Nagarro"
+
+resume: "/Abhijeet_Bali_Resume.pdf"
+
 social:
   github: "https://github.com/Abhijeet955"
   linkedin: "https://www.linkedin.com/in/abhijeet-bali"
-  twitter: "https://x.com"
 
 contact:
-  formspreeId: "abhijeetbali29@gmail.com"
+  # Paste your Formspree form ID here (e.g. "xyzabcd") to turn on the contact form.
+  # Until then, the Contact section shows direct email / LinkedIn buttons.
+  formspreeId: ""
 
 hero:
   heading: "Building"
@@ -23,7 +30,27 @@ hero:
     - "Propensity Models."
     - "Data Platforms."
 
-shortBio: "I am a Senior Data Scientist with 4.6+ years of experience building production-grade ML and LLM systems. I specialize in recommendation engines, RAG pipelines, and scalable data architectures — bridging the gap between research and real-world deployment."
+stats:
+  - value: "~5 yrs"
+    label: "Shipping production ML"
+  - value: "2.15B"
+    label: "Transactions mapped"
+  - value: "22"
+    label: "Banks on my data platform"
+  - value: "+95%"
+    label: "Lift in product redemptions"
+
+certifications:
+  - name: "Deep Learning Nanodegree"
+    issuer: "Udacity"
+  - name: "Data Engineering Nanodegree"
+    issuer: "Udacity"
+  - name: "Machine Learning Modeling Pipelines in Production"
+  - name: "Train & Fine-Tune LLMs for Production"
+  - name: "Effective MLOps: Model Development"
+  - name: "LangChain & Vector Databases in Production"
+
+shortBio: "I'm an Associate Staff Engineer at Nagarro working on GenAI and LLM systems, with nearly 5 years of building production-grade ML. Before that, at Loylty Rewardz, I built recommendation engines, RAG chatbots and data platforms serving 22 banks — bridging the gap between research and real-world deployment."
 
 tagline: "Production ML. Not just notebooks."
 
@@ -32,7 +59,9 @@ profileImage: "/images/abhijeet-profile.jpg"
 achievements: []
 ---
 
-I'm a Senior Data Scientist with 4.6 years of experience turning messy real-world problems into production ML systems. I've built recommendation engines serving 22 banks, RAG pipelines replacing entire support teams, and data pipelines processing 2+ billion transactions — the kind of work that doesn't fit neatly into a Kaggle leaderboard.
+I'm a Senior Data Scientist with nearly 5 years of experience turning messy real-world problems into production ML systems. I've built recommendation engines serving 22 banks, RAG chatbots that automate lead generation, and data pipelines processing billions of transactions — the kind of work that doesn't fit neatly into a Kaggle leaderboard.
+
+Today I'm an Associate Staff Engineer at *Nagarro*, working on GenAI applications — LangGraph and LangChain orchestration, RAG pipelines, LLM evaluation, and the cloud infrastructure that keeps them running.
 
 My focus sits at the intersection of *GenAI, applied ML, and data engineering*. I don't just train models — I *own the full stack from raw data to deployed API*.
 

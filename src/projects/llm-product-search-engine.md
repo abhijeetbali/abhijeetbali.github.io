@@ -3,8 +3,8 @@ title: "LLM-Powered Product Search Engine"
 category: "GenAI / LLMs"
 date: "2024-01-01"
 description: "Migrated from Elasticsearch keyword search to a semantic LLM-powered search engine using Sentence Transformers and FAISS — improving query understanding by 40%."
-imageUrl: "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?w=800&auto=format&fit=crop"
-link: "#"
+metric: "+40%"
+metricLabel: "query understanding"
 tags: ["Sentence Transformers", "FAISS", "LLM", "Elasticsearch", "Python"]
 ---
 

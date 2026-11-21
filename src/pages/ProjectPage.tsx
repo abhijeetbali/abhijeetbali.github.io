@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink, Calendar, Briefcase } from 'lucide-react';
 import Markdown from 'react-markdown';
 import { projects } from '../data';
 import { Reveal } from '../components/Reveal';
+import { ProjectCover } from '../components/ProjectCover';
 
 export const ProjectPage: React.FC = () => {
    const { id } = useParams<{ id: string }>();
@@ -50,15 +51,8 @@ export const ProjectPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
                {/* Main Image */}
                <div className="lg:col-span-2">
-                  <div className="rounded-3xl overflow-hidden shadow-2xl ring-1 ring-neutral-100 aspect-video bg-gradient-to-br from-blue-100 to-purple-100">
-                     <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                           (e.target as HTMLImageElement).style.display = 'none';
-                        }}
-                     />
+                  <div className="rounded-3xl overflow-hidden shadow-2xl ring-1 ring-neutral-100 aspect-video">
+                     <ProjectCover project={project} size="hero" />
                   </div>
                </div>
 
@@ -75,14 +69,14 @@ export const ProjectPage: React.FC = () => {
                            <span className="block text-xs font-bold text-neutral-400 uppercase tracking-wider mb-1">Date</span>
                            <div className="flex items-center text-neutral-900 font-medium">
                               <Calendar size={14} className="mr-1 text-neutral-400" />
-                              {new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                              {new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
                            </div>
                         </div>
                         <div>
                            <span className="block text-xs font-bold text-neutral-400 uppercase tracking-wider mb-1">Role</span>
                            <div className="flex items-center text-neutral-900 font-medium">
                               <Briefcase size={14} className="mr-1 text-neutral-400" />
-                              Lead ML Engineer
+                              {project.role || 'Data Scientist'}
                            </div>
                         </div>
 
@@ -101,14 +95,16 @@ export const ProjectPage: React.FC = () => {
                         )}
                      </div>
 
-                     <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 bg-neutral-900 text-white font-medium rounded-xl hover:bg-neutral-800 transition-colors text-sm"
-                     >
-                        View Project <ExternalLink size={14} className="ml-2" />
-                     </a>
+                     {project.link && project.link !== '#' && (
+                        <a
+                           href={project.link}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 bg-neutral-900 text-white font-medium rounded-xl hover:bg-neutral-800 transition-colors text-sm"
+                        >
+                           View Project <ExternalLink size={14} className="ml-2" />
+                        </a>
+                     )}
                   </div>
                </div>
             </div>

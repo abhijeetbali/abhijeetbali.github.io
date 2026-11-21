@@ -3,8 +3,8 @@ title: "Campaign Analytics Data Mart"
 category: "Data Engineering"
 date: "2023-08-01"
 description: "Designed a 500+ feature campaign analytics mart on Airflow and Greenplum, serving real-time insights across 22 banks and modernized legacy pipelines with DQM layers."
-imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop"
-link: "#"
+metric: "500+"
+metricLabel: "features engineered"
 tags: ["Greenplum", "Airflow", "ETL", "Feature Engineering", "Docker"]
 ---
 

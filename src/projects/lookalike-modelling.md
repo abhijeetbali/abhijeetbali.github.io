@@ -3,8 +3,6 @@ title: "Lookalike Modelling"
 category: "Machine Learning"
 date: "2023-11-01"
 description: "Built a lookalike audience expansion system using KMeans++, FAISS, and PCA to identify high-value customer segments and improve targeting efficiency."
-imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop"
-link: "#"
 tags: ["KMeans++", "FAISS", "PCA", "Silhouette Score", "Python"]
 ---
 

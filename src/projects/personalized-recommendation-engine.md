@@ -3,8 +3,8 @@ title: "Personalized Recommendation Engine"
 category: "Machine Learning"
 date: "2024-06-01"
 description: "Built a production recommendation system for 20+ client portals serving 22 banks using 45 XGBoost propensity models, ALS collaborative filtering, and RFM segmentation."
-imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
-link: "#"
+metric: "+95%"
+metricLabel: "product redemptions"
 tags: ["XGBoost", "ALS", "RFM", "Collaborative Filtering", "Python"]
 ---
 

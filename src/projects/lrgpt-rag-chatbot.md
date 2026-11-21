@@ -3,8 +3,8 @@ title: "LRGPT — RAG Chatbot"
 category: "GenAI / LLMs"
 date: "2024-03-01"
 description: "Production RAG chatbot built with LangChain, Llama 3.1, and Qdrant vector database — reducing lead response time by 50% and boosting engagement by 35%."
-imageUrl: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&auto=format&fit=crop"
-link: "#"
+metric: "−50%"
+metricLabel: "lead response time"
 tags: ["LangChain", "Llama 3.1", "Qdrant", "RAG", "FastAPI"]
 ---
 

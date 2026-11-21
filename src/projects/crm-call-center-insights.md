@@ -3,8 +3,8 @@ title: "LLM-Based CRM Call Center Insights"
 category: "GenAI / LLMs"
 date: "2023-09-01"
 description: "Automated extraction of structured insights from 100k+ CRM tickets using Mistral-7B — reducing manual analyst effort by 70% and surfacing actionable customer patterns."
-imageUrl: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop"
-link: "#"
+metric: "−70%"
+metricLabel: "manual analyst effort"
 tags: ["Mistral-7B", "Prompt Engineering", "NLP", "Automation", "Python"]
 ---
 

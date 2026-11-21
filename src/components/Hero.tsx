@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, FileText, Github, Linkedin, Mail } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { profile } from '../data';
 
@@ -168,35 +168,90 @@ export const Hero: React.FC = () => {
   };
 
   const HeroContent = () => (
-    <div
-      className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 py-12 md:py-20"
-    >
-      <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-6 md:mb-8 tracking-tighter text-center uppercase">
+    <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 pt-28 pb-12 md:pt-32 md:pb-16">
+      {profile.current && (
+        <div className="inline-flex items-center gap-2.5 mb-8 md:mb-10 px-4 py-2 rounded-full bg-white/80 backdrop-blur border border-neutral-200 shadow-sm text-sm text-neutral-600">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+          </span>
+          <span>
+            {profile.current.title} @ <span className="font-semibold text-neutral-900">{profile.current.company}</span>
+          </span>
+        </div>
+      )}
+
+      <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-6 md:mb-8 tracking-tighter text-center uppercase">
         {profile.hero.heading} <br />
-        <span className="text-blue-600 block">
+        <span className="block min-h-[2.7em] md:min-h-[1.8em] bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent pb-2">
           <span key={textIndex} className="block animate-fade-in-up">
             {profile.hero.rotatingTexts[textIndex]}
           </span>
         </span>
       </h1>
 
-      <p className="text-lg md:text-2xl text-neutral-500 max-w-3xl leading-relaxed mb-8 md:mb-12 font-medium text-center mx-auto uppercase tracking-wide">
+      <p className="text-base md:text-xl text-neutral-500 max-w-3xl leading-relaxed mb-3 font-semibold text-center mx-auto uppercase tracking-[0.2em]">
         {profile.hero.subheading}
       </p>
+      <p className="text-lg md:text-xl text-neutral-600 max-w-2xl leading-relaxed mb-10 text-center mx-auto">
+        {profile.name} — {profile.role} who takes models from notebook to production.
+      </p>
 
-      <a
-        href="#works"
-        onClick={handleScroll}
-        className="group inline-flex items-center gap-2 px-8 py-4 bg-neutral-900 text-white rounded-none font-bold hover:bg-neutral-800 transition-all hover:scale-105 hover:shadow-xl uppercase tracking-widest text-sm border-2 border-transparent hover:border-blue-600 pointer-events-auto"
-      >
-        "Explore"
-        <ArrowDown
-          size={20}
-          className="group-hover:translate-y-1 transition-transform duration-300"
-        />
-      </a>
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+        <a
+          href="#works"
+          onClick={handleScroll}
+          className="group inline-flex items-center gap-2 px-8 py-4 bg-neutral-900 text-white rounded-full font-semibold hover:bg-blue-600 transition-all hover:shadow-xl hover:shadow-blue-600/20 text-sm tracking-wide pointer-events-auto"
+        >
+          See my work
+          <ArrowDown size={18} className="group-hover:translate-y-0.5 transition-transform duration-300" />
+        </a>
+        {profile.resume && (
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white/80 backdrop-blur text-neutral-900 rounded-full font-semibold border border-neutral-300 hover:border-neutral-900 transition-all text-sm tracking-wide pointer-events-auto"
+          >
+            <FileText size={18} />
+            Download résumé
+          </a>
+        )}
+      </div>
+
+      <div className="flex items-center gap-5 mt-8 text-neutral-400">
+        {profile.social.github && (
+          <a href={profile.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-neutral-900 transition-colors">
+            <Github size={22} />
+          </a>
+        )}
+        {profile.social.linkedin && (
+          <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-neutral-900 transition-colors">
+            <Linkedin size={22} />
+          </a>
+        )}
+        <a href={`mailto:${profile.email}`} aria-label="Email" className="hover:text-neutral-900 transition-colors">
+          <Mail size={22} />
+        </a>
+      </div>
     </div>
   );
+
+  const Stats = () =>
+    profile.stats.length > 0 ? (
+      <div className="w-full max-w-5xl mx-auto px-6 pb-16 md:pb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-200 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm">
+          {profile.stats.map((stat) => (
+            <div key={stat.label} className="bg-white/90 backdrop-blur px-5 py-6 md:py-7 text-center">
+              <div className="font-heading font-extrabold text-3xl md:text-4xl text-neutral-900 tracking-tight">
+                {stat.value}
+              </div>
+              <div className="mt-1.5 text-xs md:text-sm text-neutral-500 font-medium leading-snug">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : null;
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
@@ -217,8 +272,9 @@ export const Hero: React.FC = () => {
 
       {/* Main Content */}
       <Reveal width="100%">
-        <div className="relative w-full z-10 min-h-[80vh] flex items-center justify-center">
+        <div className="relative w-full z-10 flex flex-col items-center justify-center">
           <HeroContent />
+          <Stats />
         </div>
       </Reveal>
     </section>

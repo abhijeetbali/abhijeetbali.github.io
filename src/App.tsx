@@ -8,6 +8,8 @@ import { profile } from './data';
 import { WorksPage } from './pages/WorksPage';
 import { ProjectPage } from './pages/ProjectPage';
 import { AboutPage } from './pages/AboutPage';
+import { WritingPage } from './pages/WritingPage';
+import { PostPage } from './pages/PostPage';
 
 const App: React.FC = () => {
   const gaId = profile.contact.googleAnalyticsId || 'G-XXXXXXXXXX';
@@ -23,6 +25,8 @@ const App: React.FC = () => {
             <Route path="/works" element={<WorksPage />} />
             <Route path="/works/:id" element={<ProjectPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/writing" element={<WritingPage />} />
+            <Route path="/writing/:id" element={<PostPage />} />
           </Routes>
         </main>
         <Footer />

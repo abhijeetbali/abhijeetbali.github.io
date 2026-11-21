@@ -3,8 +3,8 @@ title: "Multi-Label Product Category Classifier"
 category: "Machine Learning"
 date: "2022-10-01"
 description: "Built a multi-label XGBoost system predicting customer purchasing behaviour across 48 product categories using compact per-category feature signals."
-imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&auto=format&fit=crop"
-link: "#"
+metric: "48"
+metricLabel: "product categories"
 tags: ["XGBoost", "Multi-label", "Feature Engineering", "Python"]
 ---
 

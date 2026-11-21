@@ -3,8 +3,8 @@ title: "Category Retention Propensity Model"
 category: "Machine Learning"
 date: "2023-05-01"
 description: "XGBoost propensity model achieving 84% AUC to predict customer churn at category level — driving a 12% increase in category retention through targeted interventions."
-imageUrl: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&auto=format&fit=crop"
-link: "#"
+metric: "+12%"
+metricLabel: "category retention"
 tags: ["XGBoost", "Propensity Modelling", "CRM Analytics", "Python"]
 ---
 

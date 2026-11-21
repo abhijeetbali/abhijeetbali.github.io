@@ -1,5 +1,5 @@
 import fm from 'front-matter';
-import { Project, Post, Testimonial, Profile, Achievement } from '../types';
+import type { Project, Post, Profile, Achievement, Stat, Certification } from '../types';
 
 // --- About/Profile Loader from Markdown ---
 interface AboutAttributes {
@@ -7,10 +7,14 @@ interface AboutAttributes {
   role: string;
   email: string;
   location: string;
+  current?: { title: string; company: string };
+  resume?: string;
+  stats?: Stat[];
+  certifications?: Certification[];
   social: {
     github: string;
     linkedin: string;
-    twitter: string;
+    twitter?: string;
     lightning?: string;
     wandb?: string;
     huggingface?: string;
@@ -53,6 +57,10 @@ if (aboutContent) {
     role: attrs.role,
     email: attrs.email,
     location: attrs.location,
+    current: attrs.current,
+    resume: attrs.resume,
+    stats: attrs.stats || [],
+    certifications: attrs.certifications || [],
     social: attrs.social,
     hero: attrs.hero,
     about: {
@@ -68,7 +76,6 @@ if (aboutContent) {
     }
   };
 
-  console.log('Profile loaded from about.md:', profile.name);
 } else {
   // Fallback if about.md is not found
   console.warn('about.md not found, using fallback profile');
@@ -77,6 +84,8 @@ if (aboutContent) {
     role: "Your Role",
     email: "email@example.com",
     location: "Location",
+    stats: [],
+    certifications: [],
     social: {
       github: "",
       linkedin: "",
@@ -117,8 +126,11 @@ interface ProjectAttributes {
   date: string;
   client?: string;
   description: string;
-  imageUrl: string;
-  link: string;
+  imageUrl?: string;
+  link?: string;
+  metric?: string;
+  metricLabel?: string;
+  role?: string;
   tags?: string[];
 }
 
@@ -183,27 +195,3 @@ const posts: Post[] = Object.entries(postFiles).map(([path, content]) => {
 }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export { posts };
-
-// --- Static Data ---
-export const testimonials: Testimonial[] = [
-  {
-    id: '1',
-    quote: "Working with this team was a game-changer for our data strategy.",
-    author: "Sarah Johnson",
-    role: "CTO at TechFlow"
-  },
-  {
-    id: '2',
-    quote: "The insight they provided helped us scale our infrastructure 10x.",
-    author: "Michael Chen",
-    role: "VP of Engineering at DataSystems"
-  }
-];
-
-export const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Works', href: '#works' },
-  { label: 'Writing', href: '#writing' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-];
