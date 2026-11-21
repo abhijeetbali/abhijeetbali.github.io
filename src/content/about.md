@@ -11,7 +11,7 @@ current:
 resume: "/Abhijeet_Bali_Resume.pdf"
 
 social:
-  github: "https://github.com/Abhijeet955"
+  github: "https://github.com/abhijeetbali"
   linkedin: "https://www.linkedin.com/in/abhijeet-bali"
 
 contact:

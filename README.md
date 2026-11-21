@@ -1,6 +1,6 @@
 # Abhijeet Bali | Personal Portfolio
 
-A modern personal portfolio built with **React**, **Vite**, and **Tailwind CSS**, live at https://abhijeet955.github.io. Designed with a focus on typography, smooth transitions, and a developer-friendly "Content-as-Data" workflow.
+A modern personal portfolio built with **React**, **Vite**, and **Tailwind CSS**, live at https://abhijeetbali.github.io. Designed with a focus on typography, smooth transitions, and a developer-friendly "Content-as-Data" workflow.
 
 ## 🚀 Quick Start
 
