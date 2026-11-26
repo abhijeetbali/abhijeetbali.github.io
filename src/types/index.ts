@@ -39,6 +39,13 @@ export interface Stat {
   label: string;
 }
 
+export interface UseCase {
+  title: string;
+  description: string;
+  icon?: string;
+  project?: string; // project id (file name in src/projects) to link to
+}
+
 export interface Certification {
   name: string;
   issuer?: string;
@@ -53,6 +60,8 @@ export interface Profile {
   current?: { title: string; company: string };
   resume?: string;
   stats: Stat[];
+  experienceLine?: string;
+  useCases: UseCase[];
   certifications: Certification[];
   social: {
     github: string;

@@ -31,15 +31,26 @@ hero:
     - "Propensity Models."
     - "Data Platforms."
 
-stats:
-  - value: "~5 yrs"
-    label: "Shipping production ML"
-  - value: "2.15B"
-    label: "Transactions mapped"
-  - value: "22"
-    label: "Banks on my data platform"
-  - value: "+95%"
-    label: "Lift in product redemptions"
+experienceLine: "Nearly 5 years building AI for banking & loyalty — now designing GenAI and agentic systems at Nagarro."
+
+# "AI I've put into production" cards in the hero. icon: chat | search | gift | headset | bot | chart
+useCases:
+  - title: "AI Sales Assistant"
+    description: "A chatbot that answers customer questions from company knowledge and qualifies leads — cutting response time in half."
+    icon: "chat"
+    project: "lrgpt-rag-chatbot"
+  - title: "Search That Understands You"
+    description: "Shoppers type what they mean, not exact keywords. LLM-powered search improved query understanding by 40%."
+    icon: "search"
+    project: "llm-product-search-engine"
+  - title: "Personalised Offers"
+    description: "Recommends the right reward to every customer across 20+ bank loyalty portals — 95% more redemptions."
+    icon: "gift"
+    project: "personalized-recommendation-engine"
+  - title: "Call-Center Insights"
+    description: "An LLM reads 100k+ support tickets and surfaces issues and sentiment automatically — 70% less manual work."
+    icon: "headset"
+    project: "crm-call-center-insights"
 
 certifications:
   - name: "Deep Learning Nanodegree"

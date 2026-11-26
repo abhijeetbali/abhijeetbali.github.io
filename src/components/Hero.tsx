@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown, FileText, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, FileText, Github, Linkedin, Mail, MessageSquareText, Search, Gift, Headset, Bot, LineChart, Sparkles } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Reveal } from './Reveal';
 import { profile } from '../data';
 
@@ -197,7 +199,7 @@ export const Hero: React.FC = () => {
         {profile.hero.subheading}
       </p>
       <p className="text-lg md:text-xl text-neutral-600 max-w-2xl leading-relaxed mb-10 text-center mx-auto">
-        {profile.name} — {profile.role} who takes models from notebook to production.
+        {profile.experienceLine || `${profile.name} — ${profile.role} who takes models from notebook to production.`}
       </p>
 
       <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
@@ -240,18 +242,48 @@ export const Hero: React.FC = () => {
     </div>
   );
 
-  const Stats = () =>
-    profile.stats.length > 0 ? (
-      <div className="w-full max-w-5xl mx-auto px-6 pb-16 md:pb-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-200 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm">
-          {profile.stats.map((stat) => (
-            <div key={stat.label} className="bg-white/90 backdrop-blur px-5 py-6 md:py-7 text-center">
-              <div className="font-heading font-extrabold text-3xl md:text-4xl text-neutral-900 tracking-tight">
-                {stat.value}
-              </div>
-              <div className="mt-1.5 text-xs md:text-sm text-neutral-500 font-medium leading-snug">{stat.label}</div>
-            </div>
-          ))}
+  const useCaseIcons: Record<string, { Icon: LucideIcon; tile: string }> = {
+    chat: { Icon: MessageSquareText, tile: 'bg-violet-50 text-violet-600' },
+    search: { Icon: Search, tile: 'bg-fuchsia-50 text-fuchsia-600' },
+    gift: { Icon: Gift, tile: 'bg-blue-50 text-blue-600' },
+    headset: { Icon: Headset, tile: 'bg-emerald-50 text-emerald-600' },
+    bot: { Icon: Bot, tile: 'bg-indigo-50 text-indigo-600' },
+    chart: { Icon: LineChart, tile: 'bg-orange-50 text-orange-600' },
+  };
+
+  const UseCases = () =>
+    profile.useCases.length > 0 ? (
+      <div className="w-full max-w-6xl mx-auto px-6 pb-16 md:pb-20">
+        <div className="flex items-center justify-center gap-3 mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          <span className="h-px w-8 bg-neutral-300" />
+          <Sparkles size={14} className="text-blue-600" />
+          AI I've put into production
+          <span className="h-px w-8 bg-neutral-300" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+          {profile.useCases.map((uc) => {
+            const { Icon, tile } = useCaseIcons[uc.icon || ''] || { Icon: Sparkles, tile: 'bg-neutral-100 text-neutral-700' };
+            const inner = (
+              <>
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`w-11 h-11 rounded-xl flex items-center justify-center ${tile}`}>
+                    <Icon size={22} />
+                  </span>
+                  {uc.project && (
+                    <ArrowUpRight size={18} className="text-neutral-300 group-hover:text-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  )}
+                </div>
+                <h3 className="font-heading font-bold text-neutral-900 mb-1.5 group-hover:text-blue-600 transition-colors">{uc.title}</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed">{uc.description}</p>
+              </>
+            );
+            const cls = 'group block h-full rounded-2xl border border-neutral-200 bg-white/90 backdrop-blur p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all duration-300 pointer-events-auto';
+            return uc.project ? (
+              <Link key={uc.title} to={`/works/${uc.project}`} className={cls}>{inner}</Link>
+            ) : (
+              <div key={uc.title} className={cls}>{inner}</div>
+            );
+          })}
         </div>
       </div>
     ) : null;
@@ -277,7 +309,7 @@ export const Hero: React.FC = () => {
       <Reveal width="100%">
         <div className="relative w-full z-10 flex flex-col items-center justify-center">
           <HeroContent />
-          <Stats />
+          <UseCases />
         </div>
       </Reveal>
     </section>

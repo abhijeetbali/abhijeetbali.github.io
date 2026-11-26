@@ -1,5 +1,5 @@
 import fm from 'front-matter';
-import type { Project, Post, Profile, Achievement, Stat, Certification } from '../types';
+import type { Project, Post, Profile, Achievement, Stat, Certification, UseCase } from '../types';
 
 // --- About/Profile Loader from Markdown ---
 interface AboutAttributes {
@@ -10,6 +10,8 @@ interface AboutAttributes {
   current?: { title: string; company: string };
   resume?: string;
   stats?: Stat[];
+  experienceLine?: string;
+  useCases?: UseCase[];
   certifications?: Certification[];
   social: {
     github: string;
@@ -60,6 +62,8 @@ if (aboutContent) {
     current: attrs.current,
     resume: attrs.resume,
     stats: attrs.stats || [],
+    experienceLine: attrs.experienceLine,
+    useCases: attrs.useCases || [],
     certifications: attrs.certifications || [],
     social: attrs.social,
     hero: attrs.hero,
@@ -85,6 +89,7 @@ if (aboutContent) {
     email: "email@example.com",
     location: "Location",
     stats: [],
+    useCases: [],
     certifications: [],
     social: {
       github: "",
